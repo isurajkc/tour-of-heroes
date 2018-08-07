@@ -7,47 +7,122 @@ class HeroDetail extends Component {
     super(props);
 
     this.state = {
-      heroDetail: {
-        id: null,
-        name: '',
-        realName: '',
-        superHeroes: '',
-      },
+      id: null,
+      name: '',
+      realName: '',
+      superPowers: '',
     };
 
     this.apiURL = 'http://localhost:4000/superHeroes/';
+    this.heroId = this.props.match.params.id;
   }
 
   componentDidMount() {
-    const heroId = this.props.match.params.id;
-    this.getHeroDetail(heroId);
+    this.getHeroDetail(this.heroId);
   }
 
   getHeroDetail = heroId => {
     fetch(this.apiURL + heroId)
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          heroDetail: data,
-        });
+        this.setState(data);
       });
   };
 
+  handleChange = e => {
+    const { name, value } = e.target;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+
+    const data = this.state;
+
+    fetch(this.apiURL + this.heroId, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    }).then(res => {
+      this.props.history.push('/');
+    });
+  };
+
   render() {
-    const { heroDetail } = this.state;
-    console.log(heroDetail);
+    const { name, realName, superPowers, avatar } = this.state;
 
     return (
       <Page>
-        <div className="hero-detail">
-          <img src={`/img/${heroDetail.avatar}`} alt="" />
+        <button class="back-button">
+          <span>←</span> Superheroes
+        </button>
 
-          <div>
-            <span className="hero-name">{heroDetail.name}</span>
-            <span>{heroDetail.realName}</span>
-            <span>{heroDetail.superPowers}</span>
+        <h2 className="add-hero-title">Update superhero</h2>
+
+        <form>
+          <div className="form">
+            <div className="form-group">
+              <label htmlFor="name" className="for">
+                Hero Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={name}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="realName" className="for">
+                Real Name
+              </label>
+              <input
+                type="text"
+                name="realName"
+                id="realName"
+                value={realName}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="superPowers">Super Powers</label>
+              <input
+                type="text"
+                name="superPowers"
+                id="superPowers"
+                value={superPowers}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="avatar" id="avatar" onChange={this.handleChange}>
+                Avatar
+              </label>
+              <input
+                type="text"
+                name="avatar"
+                id="avatar"
+                value={avatar}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+
+            <button onClick={this.onSubmit} className="submit-button">
+              <span>Update</span>
+            </button>
           </div>
-        </div>
+        </form>
       </Page>
     );
   }
