@@ -54,7 +54,7 @@ class Home extends Component {
   };
 
   render() {
-    const { heroes, searchedHeroes, searchKeyWord } = this.state;
+    const { searchedHeroes, searchKeyWord } = this.state;
 
     return (
       <Page>
