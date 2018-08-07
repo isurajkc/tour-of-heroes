@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './page.css';
 
 const Page = ({ children }) => (
-  <div class="page">
+  <div className="page">
     <aside>
       <h1>
         <Link to="/" className="logo">

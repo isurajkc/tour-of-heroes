@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HeroList.css';
-import { images } from 'config';
-console.log(images.avatars);
 
 const HeroList = ({ heroes, deleteHero }) => {
   return (
     <div>
-      <Link class="add-button" to="/add-hero">
+      <Link className="add-button" to="/add-hero">
         <span>+</span>
       </Link>
       <ul className="heroes">

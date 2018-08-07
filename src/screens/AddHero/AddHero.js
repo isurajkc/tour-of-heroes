@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Page } from 'components';
+import './AddHero.css';
 
-class HeroForm extends Component {
+class AddHero extends Component {
   state = {
     name: '',
     realName: '',
@@ -32,8 +33,6 @@ class HeroForm extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     return (
       <Page>
         <form>
@@ -98,4 +97,4 @@ class HeroForm extends Component {
   }
 }
 
-export default HeroForm;
+export default AddHero;
