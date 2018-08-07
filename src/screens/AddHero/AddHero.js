@@ -32,10 +32,14 @@ class AddHero extends Component {
     });
   };
 
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     return (
       <Page>
-        <button class="back-button">
+        <button class="back-button" onClick={this.goBack}>
           <span>←</span> Superheroes
         </button>
 
