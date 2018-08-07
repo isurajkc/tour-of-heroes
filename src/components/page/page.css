@@ -1,0 +1,50 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+aside {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px;
+  /* background-image: url('./images/superhero_bg.png'); */
+  background-size: 100%;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+}
+
+main {
+  padding: 48px;
+  flex: 1;
+  position: relative;
+}
+
+.logo {
+  display: block;
+  font-size: 124px;
+  line-height: 100px;
+  font-weight: 900;
+  text-align: right;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: -10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo small {
+  font-weight: 300;
+  text-shadow: -5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.logo span {
+  display: block;
+  font-weight: 900;
+}

@@ -1,0 +1,121 @@
+.heroes {
+  list-style-type: none;
+  padding: 0;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 12px 16px 12px 24px;
+  margin-top: 16px;
+  border-radius: 4px;
+  border: 1px solid rgb(235, 235, 235);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.hero > div {
+  flex: 1;
+}
+
+.hero:hover {
+  box-shadow: rgba(168, 182, 191, 0.6) 0px 4px 20px 0px;
+}
+
+.hero a {
+  color: rebeccapurple;
+  font-weight: 600;
+}
+
+.hero img {
+  max-width: 100px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.hero span {
+  margin: 4px 0;
+  color: #888;
+  display: block;
+}
+
+.hero a {
+  flex: 1;
+  color: rebeccapurple;
+  text-decoration: none;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  position: absolute;
+  top: 63%;
+  left: 0;
+  transform: translateX(-50%);
+  text-decoration: none;
+  font-size: 48px;
+  font-weight: bold;
+  color: #250249;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.75);
+  transition: all 0.5s ease-in-out;
+}
+
+.add-button span {
+  z-index: 10;
+}
+
+.add-button:before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(120deg, #fff, #fff 50%, rebeccapurple 50%);
+  z-index: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.add-button:hover {
+  transform: translateX(-50%) translateY(-5px) scale(1.2);
+  transform-origin: center center;
+  box-shadow: 0 15px 30px -2px rgba(0, 0, 0, 0.75);
+}
+
+.add-button:hover:before {
+  transform: rotate(-60deg);
+}
+
+.remove-button {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #f44336;
+  font-size: 20px;
+}
+
+.remove-button:focus {
+  outline: none;
+}
+
+.remove-button:hover {
+  background: rgba(244, 67, 54, 0.15);
+}
+
+.remove-button .fa {
+  cursor: pointer;
+}

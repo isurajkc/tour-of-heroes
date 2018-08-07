@@ -1,0 +1,9 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  background-color: rgb(240, 248, 255);
+  -webkit-font-smoothing: antialiased;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
