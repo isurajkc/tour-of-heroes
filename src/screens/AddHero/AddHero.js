@@ -35,6 +35,12 @@ class AddHero extends Component {
   render() {
     return (
       <Page>
+        <button class="back-button">
+          <span>←</span> Superheroes
+        </button>
+
+        <h2 className="add-hero-title">Add new superhero</h2>
+
         <form>
           <div className="form">
             <div className="form-group">
