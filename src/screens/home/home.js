@@ -32,7 +32,6 @@ class Home extends Component {
   onHeroSearch = e => {
     const value = e.target.value;
     let searchedHeroes = this.state.heroes;
-    console.log(value);
 
     searchedHeroes = searchedHeroes.filter(hero => {
       const name = hero.name.toLowerCase();
