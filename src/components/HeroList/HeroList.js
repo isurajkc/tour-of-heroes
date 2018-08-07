@@ -13,9 +13,18 @@ const HeroList = ({ heroes, deleteHero }) => {
           <li className="hero" key={index}>
             <img src={`/img/${hero.avatar}`} alt="" />
             <div>
-              <Link to={`/detail/${hero.id}`}>{hero.name}</Link>
+              <span className="name" to={`/detail/${hero.id}`}>
+                {hero.name}
+              </span>
               <span>Real name: {hero.realName}</span>
             </div>
+
+            <Link to={`/detail/${hero.id}`}>
+              <button className="edit-button">
+                <i className="fa fa-edit" />
+              </button>
+            </Link>
+
             <button
               className="remove-button"
               onClick={() => deleteHero(hero.id)}
