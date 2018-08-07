@@ -2,21 +2,25 @@ import React, { Component } from 'react';
 import { Page } from 'components';
 
 class HeroForm extends Component {
-  state = {};
+  state = {
+    name: '',
+    realName: '',
+    superPowers: '',
+    avatar: '',
+  };
+
+  handleChange = e => {
+    const { name, value } = e.target;
+
+    this.setState({
+      [name]: value,
+    });
+  };
 
   onSubmit = e => {
     e.preventDefault();
-    // const name = this.inputName.value;
-    // const realName = this.realName.value;
-    // const superPowers = this.superPowers.value;
-    // const avatar = this.avatarImage.value;
 
-    const data = {
-      name: this.inputName.value,
-      realName: this.realName.value,
-      superPowers: this.superPowers.value,
-      avatar: this.avatarImage.value,
-    };
+    const data = this.state;
 
     fetch('http://localhost:4000/superHeroes', {
       method: 'POST',
@@ -25,66 +29,61 @@ class HeroForm extends Component {
     }).then(res => {
       this.props.history.push('/');
     });
-
-    this.inputName.value = '';
-    this.realName.value = '';
-    this.superPowers.value = '';
-    this.avatarImage.value = '';
   };
 
   render() {
+    console.log(this.state);
+
     return (
       <Page>
         <form>
           <div className="form">
             <div className="form-group">
-              <label htmlFor="add-hero" className="for">
+              <label htmlFor="name" className="for">
                 Hero Name
               </label>
               <input
                 type="text"
-                ref={c => {
-                  this.inputName = c;
-                }}
+                name="name"
+                id="name"
+                onChange={this.handleChange}
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="add-hero" className="for">
+              <label htmlFor="realName" className="for">
                 Real Name
               </label>
               <input
                 type="text"
-                ref={c => {
-                  this.realName = c;
-                }}
+                name="realName"
+                id="realName"
+                onChange={this.handleChange}
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="add-hero" className="for">
-                Super Powers
-              </label>
+              <label htmlFor="superPowers">Super Powers</label>
               <input
                 type="text"
-                ref={c => {
-                  this.superPowers = c;
-                }}
+                name="superPowers"
+                id="superPowers"
+                onChange={this.handleChange}
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="add-hero" className="for">
+              <label htmlFor="avatar" id="avatar" onChange={this.handleChange}>
                 Avatar
               </label>
               <input
                 type="text"
-                ref={c => {
-                  this.avatarImage = c;
-                }}
+                name="avatar"
+                id="avatar"
+                onChange={this.handleChange}
                 required
               />
             </div>
