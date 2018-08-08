@@ -40,7 +40,7 @@ class AddHero extends Component {
     return (
       <Page>
         <button class="back-button" onClick={this.goBack}>
-          <span>←</span> Superheroes
+          <span>←</span> Back to Superheroes
         </button>
 
         <h2 className="add-hero-title">Add new superhero</h2>

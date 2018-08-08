@@ -41,9 +41,13 @@
 }
 
 .hero a {
-  flex: 1;
-  color: rebeccapurple;
   text-decoration: none;
+}
+
+.hero .name {
+  color: rebeccapurple;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .add-button {
@@ -117,5 +121,30 @@
 }
 
 .remove-button .fa {
+  cursor: pointer;
+}
+
+.edit-button {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: teal;
+  font-size: 20px;
+}
+
+.edit-button:focus {
+  outline: none;
+}
+
+.edit-button:hover {
+  background: rgb(196, 217, 220);
+}
+
+.edit-button .fa {
   cursor: pointer;
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Page } from 'components';
-import './HeroDetail.css';
+import './UpdateHero.css';
 
-class HeroDetail extends Component {
+class UpdateHero extends Component {
   constructor(props) {
     super(props);
 
@@ -18,10 +18,10 @@ class HeroDetail extends Component {
   }
 
   componentDidMount() {
-    this.getHeroDetail(this.heroId);
+    this.getUpdateHero(this.heroId);
   }
 
-  getHeroDetail = heroId => {
+  getUpdateHero = heroId => {
     fetch(this.apiURL + heroId)
       .then(res => res.json())
       .then(data => {
@@ -61,7 +61,7 @@ class HeroDetail extends Component {
     return (
       <Page>
         <button class="back-button" onClick={this.goBack}>
-          <span>←</span> Superheroes
+          <span>←</span> Back to Superheroes
         </button>
 
         <h2 className="add-hero-title">Update superhero</h2>
@@ -132,4 +132,4 @@ class HeroDetail extends Component {
   }
 }
 
-export default HeroDetail;
+export default UpdateHero;
